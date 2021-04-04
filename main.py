@@ -49,10 +49,10 @@ def unfollow_session(users={}, number_of_users_to_unfollow=None):
         number_to_unfollow = random.randint(round(number_of_users_to_unfollow * 0.8),
                                             round(number_of_users_to_unfollow * 1.20))
 
-        followed = files_manipulation.read_users(filename=zhuzi_files.folders[username] + "\\followed.txt")
-        follow_back = files_manipulation.read_users(filename=zhuzi_files.folders[username] + "\\follow_back.txt")
-        forbidden_unfollows = files_manipulation.read_users(
-            filename=zhuzi_files.folders[username] + "\\forbidden_unfollows.txt")
+        #followed = files_manipulation.read_users(filename=zhuzi_files.folders[username] + "\\followed.txt")
+        #follow_back = files_manipulation.read_users(filename=zhuzi_files.folders[username] + "\\follow_back.txt")
+        #forbidden_unfollows = files_manipulation.read_users(
+           # filename=zhuzi_files.folders[username] + "\\forbidden_unfollows.txt")
 
         browser = selenium.webdriver.Firefox()
 
@@ -64,10 +64,7 @@ def unfollow_session(users={}, number_of_users_to_unfollow=None):
         time.sleep(random.randint(5, 10))
 
         browser, followed, follow_back, profile_followers = account_actions_instagram.unfollow_on_instagram(
-            browser=browser, number_to_unfollow=number_to_unfollow,
-            followed=followed,
-            follow_back=follow_back,
-            forbidden_unfollows=forbidden_unfollows)
+            browser=browser, number_to_unfollow=number_to_unfollow)
 
         time.sleep(random.randint(5, 10))
 
